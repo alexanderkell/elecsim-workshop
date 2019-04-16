@@ -1,5 +1,5 @@
 
-ElecSIM has been designed for ease of use to enable non-experts to rapidly test policies and observe the outcomes of various scenarios such as demand growth. The user is able to input various exogenous variables {\color{red}such as fuel costs, carbon taxes, number and type of power plants, power plant costs and electricity demand.} This allows for the initialisation of different countries and scenarios to be tested.
+ElecSIM has been designed for ease of use to enable non-experts to rapidly test policies and observe the outcomes of various scenarios such as demand growth. The user is able to input various exogenous variables \phantom{\color{red}such as fuel costs, carbon taxes, number and type of power plants, power plant costs and electricity demand.} This allows for the initialisation of different countries and scenarios to be tested.
 
 
 \subsection{Overview}
@@ -18,42 +18,42 @@ ElecSIM is made up of five fundamental parts: the agents, which are split up int
 
 A schematic of ElecSIM is displayed in Figure \ref{fig:systemoverview} which displays these five fundamental sections and demonstrates how they interact. The main components are discussed below:
 
-\subsubsection{Data parametrisation} To parametrise the world ElecSIM contains a configuration file and a collection of data sources. These data sources contain information such as historical fuel prices, historical plant availability, wind and solar capacity, power plant costs, historical costs, historical efficiency, company finances and historical carbon price. {\color{red} This is data that does not change from scenario to scenario, however can vary between countries.}
+\subsubsection{Data parametrisation} To parametrise the world ElecSIM contains a configuration file and a collection of data sources. These data sources contain information such as historical fuel prices, historical plant availability, wind and solar capacity, power plant costs, historical costs, historical efficiency, company finances and historical carbon price. \phantom{\color{red} This is data that does not change from scenario to scenario, however can vary between countries.}
 
 The configuration file allows for rapid changes to test different hypothesis and scenarios, and points to previously mentioned data sources. The configuration file enables the changing of demand growth and shape,  future fuel and carbon prices, capital costs, plant availability, investment costs and simulation time. These data is used to calibrate the world.
 
 \subsubsection{Demand Agent}
-The demand agent is a simplified representation of aggregated demand in a particular country. The demand is represented as a load duration curve. {\color{red}An example load duration curve for a year is demonstrated in Figure \ref{fig:loaddurationcurve}}. A load duration curve is an arrangement of all load levels in descending order of magnitude, where the lowest segment demand demonstrates baseload (ie. 100\% of time), and the highest segment represents peak demand. Each year, the demand agent multiplies the percentage of change in demand with each segment of the load duration curve. Therefore, whilst total demand changes between years, the ratio between each segment of the load duration curve is assumed not to change.
+The demand agent is a simplified representation of aggregated demand in a particular country. The demand is represented as a load duration curve. \phantom{\color{red}An example load duration curve for a year is demonstrated in Figure \ref{fig:loaddurationcurve}}. A load duration curve is an arrangement of all load levels in descending order of magnitude, where the lowest segment demand demonstrates baseload (ie. 100\% of time), and the highest segment represents peak demand. Each year, the demand agent multiplies the percentage of change in demand with each segment of the load duration curve. Therefore, whilst total demand changes between years, the ratio between each segment of the load duration curve is assumed not to change.
 
-\begin{figure}
-	\centering
-	\includegraphics[width=0.95\linewidth]{figures/load_duration_curve}
-	\caption{{\color{red}Example load duration curve in a single year.}}
- 	\label{fig:loaddurationcurve}
-\end{figure}
+% \begin{figure}
+% 	\centering
+% 	\includegraphics[width=0.95\linewidth]{figures/load_duration_curve}
+% 	\caption{{\color{red}Example load duration curve in a single year.}}
+%  	\label{fig:loaddurationcurve}
+% \end{figure}
 
 As per Chappin \textit{et al.} \cite{Chappin2017}, we modelled the load duration curve of the electricity demand for one year with twenty segments. Twenty segments enabled us to capture the varying demand of electricity throughout the year to a high enough degree of accuracy, whilst also reducing computational complexity. 
 
 
 \subsubsection{Generation Company Agents} The GenCos have two main functions. Investing in power plants and making bids to sell their electricity each year for every one of their power plants. We will first focus on the buying and selling of electricity using a Power Exchange, and then cover the investment algorithm used by GenCos.
 
-\subsubsection{Electricity Market} \label{sssec:electricity_market} A simulated electricity spot market is run every year. {\color{red}Figure \ref{fig:powermarket} displays the market process for each segment of demand.} Power plants bid the short run marginal cost (SRMC) of each power plant. SRMC is the price that it costs a generator to sell a unit of electrical power (1MWh) excluding fixed and capital costs. 
+% \subsubsection{Electricity Market} \label{sssec:electricity_market} A simulated electricity spot market is run every year. {\color{red}Figure \ref{fig:powermarket} displays the market process for each segment of demand.} Power plants bid the short run marginal cost (SRMC) of each power plant. SRMC is the price that it costs a generator to sell a unit of electrical power (1MWh) excluding fixed and capital costs. 
 
-The power exchange sorts bids in order of price {\color{red}, as is shown in Figure \ref{fig:powermarket}}, and accepts the lowest bids until supply meets demand. Once supply meets demand, the spot price or system marginal price (SMP) is paid to all generators regardless of their initial bid. It is for this reason that generators are motivated to bid their SRMC, to ensure that their generator is being utilised, and reducing the risk of over bidding and not being selected.
+The power exchange sorts bids in order of price \phantom{\color{red}, as is shown in Figure \ref{fig:powermarket}}, and accepts the lowest bids until supply meets demand. Once supply meets demand, the spot price or system marginal price (SMP) is paid to all generators regardless of their initial bid. It is for this reason that generators are motivated to bid their SRMC, to ensure that their generator is being utilised, and reducing the risk of over bidding and not being selected.
 
-{\color{red}Higher segments of demand command higher prices, due to more expensive generators being selected to meet demand. This leads to a price duration curve.
-} 
+% {\color{red}Higher segments of demand command higher prices, due to more expensive generators being selected to meet demand. This leads to a price duration curve.
+% } 
 
-\begin{figure}
- 	\centering
- 	\includegraphics[width=1\linewidth]{figures/power_market}
- 	\caption{{\color{red}Power exchange clearing \cite{nuclear_economics_consulting_group_2019}.}}
- 	\label{fig:powermarket}
-\end{figure}
+% \begin{figure}
+%  	\centering
+%  	\includegraphics[width=1\linewidth]{figures/power_market}
+%  	\caption{{\color{red}Power exchange clearing \cite{nuclear_economics_consulting_group_2019}.}}
+%  	\label{fig:powermarket}
+% \end{figure}
 
 \subsubsection{Investment}
 
-Investment in power plants is made based upon a net present value (NPV) calculation. NPV is a summation of the present value of a series of present and future cash flow. NPV provides a method for evaluating and comparing investments with cash flows spread over many years, making it suited to evaluating power plants which have a long lifetime. A positive NPV means that the projected investment exceeds the anticipated costs, and is therefore profitable. {\color{red}NPV is based upon the fact that current cash flow is worth more than future cash flow. This is due to the fact that money today can be invested and have a rate of return. This means that, for example \$50,000 today is worth more than \$50,000 in 10 years time. The value in which future cash flow is worth less than present cash flow is discounted by the discount rate.}
+Investment in power plants is made based upon a net present value (NPV) calculation. NPV is a summation of the present value of a series of present and future cash flow. NPV provides a method for evaluating and comparing investments with cash flows spread over many years, making it suited to evaluating power plants which have a long lifetime. A positive NPV means that the projected investment exceeds the anticipated costs, and is therefore profitable. % {\color{red}NPV is based upon the fact that current cash flow is worth more than future cash flow. This is due to the fact that money today can be invested and have a rate of return. This means that, for example \$50,000 today is worth more than \$50,000 in 10 years time. The value in which future cash flow is worth less than present cash flow is discounted by the discount rate.}
 
 Equation \ref{eq:npv_eq} is the calculation of NPV, where $t$ is the year of the cash flow, $i$ is the discount rate, $N$ is total number of periods, or lifetime of power plant, and $R_t$ is the net cash flow (cash inflow minus cash outflow) at time $t$.
 
@@ -97,7 +97,7 @@ The parameters in Table \ref{table:parameter_notation} are detailed here: Effici
 \end{table}
 \addtolength{\textfloatsep}{-0.2in}
 
-Precise data is often available only for specifically sized plants. Estimating the individual costs of power plants between two known capacities is achieved through linear interpolation of each parameter. When the plant to be estimated falls outside of the range of known data points, the closest data point is used. {\color{red}For example, the parameters of a 1,500MW combined cycle gas plant (CCGT) are estimated to be the same as a 1,200MW CCGT plant if the 1,200MW plant was the largest available data point. }
+Precise data is often available only for specifically sized plants. Estimating the individual costs of power plants between two known capacities is achieved through linear interpolation of each parameter. When the plant to be estimated falls outside of the range of known data points, the closest data point is used. %{\color{red}For example, the parameters of a 1,500MW combined cycle gas plant (CCGT) are estimated to be the same as a 1,200MW CCGT plant if the 1,200MW plant was the largest available data point. }
 
 If specific parameters are not known (those referred to in Table \ref{table:parameter_notation}), then the LCOE can be used for parameter estimation, provided that these parameters are available for a single instance of each type of power plant. This is achieved through linear optimisation, with constraints available for each of the parameters. These constraints can be set by the user, enabling, for example, varying operation and maintenance costs per country as a fraction of the levelised cost of electricity.
 
@@ -148,44 +148,44 @@ The world also settles the accounts of the GenCos, by paying bids, and removing 
 
 
 
-{\color{blue}
-\subsection{UK Case Study}
+% {\color{blue}
+% \subsection{UK Case Study}
 
-Here we study a realisation of ElecSIM, which we calibrated to the United Kingdom.
+% Here we study a realisation of ElecSIM, which we calibrated to the United Kingdom.
 
-\subsubsection{Exogenous Inputs}
+% \subsubsection{Exogenous Inputs}
 
-To model variance in gas and coal prices we used data from \cite{coalprices,gasprices}. Calibration of the load duration curve was taken from \cite{gbnationalgridstatus_2019}.
+% To model variance in gas and coal prices we used data from \cite{coalprices,gasprices}. Calibration of the load duration curve was taken from \cite{gbnationalgridstatus_2019}.
 
-Historical EU ETS carbon price was taken from \cite{jones_moore_macdonald_macdonald_buckley_macdonald_2019}. The EU ETS is the EU emissions trading scheme, which limits total carbon emissions within the EU area.
+% Historical EU ETS carbon price was taken from \cite{jones_moore_macdonald_macdonald_buckley_macdonald_2019}. The EU ETS is the EU emissions trading scheme, which limits total carbon emissions within the EU area.
 
-\subsubsection{Power Plant Parameters}
+% \subsubsection{Power Plant Parameters}
 
-ElecSIM's power generation costs are initialised using the UK government Department for Business, Energy and Industrial Strategy (BEIS) power plant generation report \cite{Department2016}. This contains information on power plants found in Table \ref{table:parameter_notation}.
+% ElecSIM's power generation costs are initialised using the UK government Department for Business, Energy and Industrial Strategy (BEIS) power plant generation report \cite{Department2016}. This contains information on power plants found in Table \ref{table:parameter_notation}.
 
-For historical power plants, we used historical costs of Levelised Cost of Energy (LCOE) \cite{Dale2013}, from the International Energy Agency and International Renewable Energy Agency energy cost reports, localised to the UK \cite{IEA2015,IRENA2018}. In this realisation, each parameter was scaled linearly going from the modern LCOE calculated from the BEIS report, to attain the relevant historical LCOE. Historical plant efficiency was taken into account for gas and coal power plants using data from the USA \cite{EIA2013}.
+% For historical power plants, we used historical costs of Levelised Cost of Energy (LCOE) \cite{Dale2013}, from the International Energy Agency and International Renewable Energy Agency energy cost reports, localised to the UK \cite{IEA2015,IRENA2018}. In this realisation, each parameter was scaled linearly going from the modern LCOE calculated from the BEIS report, to attain the relevant historical LCOE. Historical plant efficiency was taken into account for gas and coal power plants using data from the USA \cite{EIA2013}.
 
-Outages are modelled by using availability data of gas, coal, photovoltaic, offshore and onshore power generators \cite{Ltd2016, Hunt2015, carroll-j}. Historical availabilities are modelled for older gas, coal and hydro power plants \cite{AlbertaSystemElectricOperator2016}.
+% Outages are modelled by using availability data of gas, coal, photovoltaic, offshore and onshore power generators \cite{Ltd2016, Hunt2015, carroll-j}. Historical availabilities are modelled for older gas, coal and hydro power plants \cite{AlbertaSystemElectricOperator2016}.
 
-Capacity factors were taken as an average of the UK for solar and wind \cite{Pfenninger2016, Staffell2016}.
-
-
+% Capacity factors were taken as an average of the UK for solar and wind \cite{Pfenninger2016, Staffell2016}.
 
 
 
 
-\subsubsection{Spot Market}
-
-The lost load is set to be \textsterling6000 to encourage investment as per the recommendations of the UK government \cite{DECC2013}.
-
-\subsubsection{Investment}
-
-As agents are modelled to have imperfect information, we model that they make predictions on future electricity and \ce{CO2} prices, as well as demand change. Each generation company has a different look-back period sampled uniformly from the previous 3 to 7 years.
 
 
-The cost of equity and debt is modelled as a weighted average cost of capital (WACC), with values of 5.9\% for non-nuclear power plants, and 10\% for nuclear power plants \cite{KPMG2017, Paper2012}. 
+% \subsubsection{Spot Market}
 
-}
+% The lost load is set to be \textsterling6000 to encourage investment as per the recommendations of the UK government \cite{DECC2013}.
+
+% \subsubsection{Investment}
+
+% As agents are modelled to have imperfect information, we model that they make predictions on future electricity and \ce{CO2} prices, as well as demand change. Each generation company has a different look-back period sampled uniformly from the previous 3 to 7 years.
+
+
+% The cost of equity and debt is modelled as a weighted average cost of capital (WACC), with values of 5.9\% for non-nuclear power plants, and 10\% for nuclear power plants \cite{KPMG2017, Paper2012}. 
+
+% }
 
 
 
