@@ -1,14 +1,14 @@
 # Fdb version 3
-["bibtex sample-sigconf"] 1555426460 "sample-sigconf.aux" "sample-sigconf.bbl" "sample-sigconf" 1555426460
+["bibtex sample-sigconf"] 1555439891 "sample-sigconf.aux" "sample-sigconf.bbl" "sample-sigconf" 1555439891
   "./ACM-Reference-Format.bst" 1546873339 83547 c877a38c9e164a869048f78117962518 ""
   "custombibtex.bib" 1555162392 2285 ec0e1d83c867ea4004b3535fb463de28 ""
-  "library.bib" 1555161908 353849 0d84e6515634d00fe0f466a81bd3904c ""
-  "sample-sigconf.aux" 1555426459 8217 cacce438bbb22e513bff16e209509d42 ""
+  "library.bib" 1555439880 355671 40c549c80eb16a1fffd811ad2db59516 ""
+  "sample-sigconf.aux" 1555439890 8217 cacce438bbb22e513bff16e209509d42 ""
   "sample-sigconf.bcf" 0 -1 0 ""
   (generated)
   "sample-sigconf.bbl"
-["pdflatex"] 1555426457 "/Users/b1017579/Documents/PhD/Reports/6. ELECSIM/Paper/template/samples/sample-sigconf.tex" "/Users/b1017579/Documents/PhD/Reports/6. ELECSIM/Paper/template/samples/sample-sigconf.pdf" "sample-sigconf" 1555426457
-  "/Users/b1017579/Documents/PhD/Reports/6. ELECSIM/Paper/template/samples/sample-sigconf.aux" 1555426457 8 a94a2480d3289e625eea47cd1b285758 ""
+["pdflatex"] 1555439887 "/Users/b1017579/Documents/PhD/Reports/6. ELECSIM/Paper/template/samples/sample-sigconf.tex" "/Users/b1017579/Documents/PhD/Reports/6. ELECSIM/Paper/template/samples/sample-sigconf.pdf" "sample-sigconf" 1555439887
+  "/Users/b1017579/Documents/PhD/Reports/6. ELECSIM/Paper/template/samples/sample-sigconf.aux" 1555439887 8 a94a2480d3289e625eea47cd1b285758 ""
   "/Users/b1017579/Documents/PhD/Reports/6. ELECSIM/Paper/template/samples/sample-sigconf.tex" 1555330728 5557 4c487d5182596a54e9759e1220d3c405 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/libertine/lbtn_25tcsq.enc" 1419120006 2951 d5e075e10c280ad772b9d44c9981aa31 ""
@@ -274,9 +274,9 @@
   "tables/validation/initialisation_run_validation.csv" 1549183559 205 8fd0b64c7815d1ee9eb883b1f005bcb0 ""
   "validation_and_performance.tex" 1555426242 6128 c06975b1f4ede24a403ce7745c4adf10 ""
   (generated)
-  "sample-sigconf.aux"
-  "/Users/b1017579/Documents/PhD/Reports/6. ELECSIM/Paper/template/samples/sample-sigconf.pdf"
-  "sample-sigconf.out"
-  "/Users/b1017579/Documents/PhD/Reports/6. ELECSIM/Paper/template/samples/sample-sigconf.log"
   "sample-sigconf.pdf"
+  "sample-sigconf.out"
+  "sample-sigconf.aux"
   "sample-sigconf.log"
+  "/Users/b1017579/Documents/PhD/Reports/6. ELECSIM/Paper/template/samples/sample-sigconf.log"
+  "/Users/b1017579/Documents/PhD/Reports/6. ELECSIM/Paper/template/samples/sample-sigconf.pdf"

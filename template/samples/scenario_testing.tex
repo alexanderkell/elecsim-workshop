@@ -1,7 +1,7 @@
 
 This section describes scenario runs using ElecSIM. Here, we vary the carbon tax and either grow or reduce total electricity demand. This was done to observe the effects of carbon tax policy on long-term investment.
 
-ElecSIM was built using python, this enabled us to lower barriers to entry and allow for users to integrate state-of-the-art machine learning and statistical packages in future work. We used project mesa as an open source agent based modelling framework for its ease of use \cite{Masad2015}.
+%ElecSIM was built using python, this enabled us to lower barriers to entry and allow for users to integrate state-of-the-art machine learning and statistical packages in future work. We used project mesa as an open source agent based modelling framework for its ease of use \cite{Masad2015}.
 
 % {\color{blue}
 % We assume that carbon tax is set by the government, and not subject to market forces such as the EU Emissions Trading Scheme \cite{Council2016}.
@@ -13,15 +13,13 @@ ElecSIM was built using python, this enabled us to lower barriers to entry and a
 % It can be seen from Figure \ref{fig:demand99carbon10} that a carbon tax of \textsterling10 per year does little to influence investment in low-carbon, renewable technology. With traditional, fossil fuel based generation, providing the majority of supply in each year. However, there is an increase in renewable technology over the years, starting from mean 15.85\% market share in the year range 2019-2029, to 24.38\% in the year range 2039-2050. A similar increase of renewable energy with a carbon tax of \textsterling0 can be seen, albeit at a lower mean by the year range 2039-2050 (22.29\%).
 % }
 
-The UK Government BEIS have predicted a carbon tax increasing from \textsterling18 to \textsterling200 by 2050. With carbon price increasingly linearly from 2030 to 2050. We have approximated these assumptions in Figure \ref{fig:demand99carbon18} and modelled the results. Interestingly, the results show only a slight increase in low-carbon supply over the \textsterling20 carbon tax energy mix. This demonstrates the importance of long-term modelling, and understanding the long-term impacts that can result due to today's decisions.
-
-It is hypothesised that a lower carbon tax early on changes the market dynamics for years to come, due to certain price structures, and therefore it takes a long time for renewable energy to recover.
+The UK Government BEIS have predicted a carbon tax increasing from \textsterling18 to \textsterling200 by 2050. With carbon price increasingly linearly from 2030 to 2050. We have approximated these assumptions in Figure \ref{fig:demand99carbon18} and modelled the results. Interestingly, the results show only a slight decrease in low-carbon supply over the \textsterling40 carbon tax energy mix. This demonstrates the importance of long-term modelling, and understanding the long-term impacts that can result. It is hypothesised that a lower carbon tax early on changes the market dynamics for years to come, due to certain price structures.
 
 Figure \ref{fig:demand99carbon40} shows that a carbon tax of \textsterling40 is sufficient in beginning to move towards a low-carbon economy, with backup fossil fuel generators.
 
-However, by referring to Figure \ref{fig:demand99carbon70} it can be seen that to have 100\% renewable, a carbon price of \textsterling70 is required. 
+% {\color{blue}However, by referring to Figure \ref{fig:demand99carbon70} it can be seen that to have 100\% renewable, a carbon price of \textsterling70 is required.
 
-These results show the importance of making difficult decisions as soon as possible to have the biggest effect on the energy mix for years to come.
+% These results show the importance of making difficult decisions as soon as possible to have the biggest effect on the energy mix for years to come.}
 
 % \begin{figure}
 	% \begin{center}
@@ -33,7 +31,7 @@ These results show the importance of making difficult decisions as soon as possi
 
 
 
- \begin{figure*}[h]
+% \begin{figure*}[h]
 % 	\centering
 % 	\begin{subfigure}[b]{0.475\textwidth}
 % 		\centering
@@ -52,29 +50,55 @@ These results show the importance of making difficult decisions as soon as possi
 % 	\end{subfigure}
 % 	\vskip\baselineskip
 
-
-	\begin{subfigure}[b]{0.475\textwidth}   
-		\centering 
-		\includegraphics[width=\textwidth]{figures/scenarios/demand099-carbon18-datetime.png}
-		\caption[]%
-		{{\textsterling26 to \textsterling150 linearly increasing carbon tax.}}    
-		\label{fig:demand99carbon18}
-	\end{subfigure}
-	\quad
-	\begin{subfigure}[b]{0.475\textwidth}   
-		\centering 
-		\includegraphics[width=\textwidth]{figures/scenarios/demand099-carbon40-datetime.png}
-		\caption[]%
-		{{\textsterling40 carbon tax.}}    
-		\label{fig:demand99carbon40}
-	\end{subfigure}
-	\caption[ Scenarios up to the year 2050 with varying carbon taxes and decreasing demand ]
-	{\small Scenarios up to the year 2050, with varying carbon taxes and electricity demand decreasing 1\% a year.} 
-	\label{fig:mean and std of nets}
-\end{figure*}
+%
+%	\begin{subfigure}[b]{0.475\textwidth}   
+%		\centering 
+%		\includegraphics[width=\textwidth]{figures/scenarios/demand099-carbon18-datetime.png}
+%		\caption[]%
+%		{{\textsterling26 to \textsterling150 linearly increasing carbon tax.}}    
+%		\label{fig:demand99carbon18}
+%	\end{subfigure}
+%	\quad
+%	\begin{subfigure}[b]{0.475\textwidth}   
+%		\centering 
+%		\includegraphics[width=\textwidth]{figures/scenarios/demand099-carbon40-datetime.png}
+%		\caption[]%
+%		{{\textsterling40 carbon tax.}}    
+%		\label{fig:demand99carbon40}
+%	\end{subfigure}
+%	\caption[ Scenarios up to the year 2050 with varying carbon taxes and decreasing demand ]
+%	{\small Scenarios up to the year 2050, with varying carbon taxes and electricity demand decreasing 1\% a year.} 
+%	\label{fig:mean and std of nets}
+%\end{figure*}
 %\FloatBarrier
 
+%\begin{figure}[b]{0.475\columnwidth}   
+%	\centering 
+%	\includegraphics{figures/scenarios/demand099-carbon18-datetime.png}
+%	\caption[]%
+%	{{\textsterling26 to \textsterling150 linearly increasing carbon tax.}}    
+%	\label{fig:demand99carbon18}
+%\end{figure}
+%
+%\begin{figure}[b]{0.475\columnwidth}   
+%	\centering 
+%	\includegraphics{figures/scenarios/demand099-carbon40-datetime.png}
+%	\caption[]%
+%	{{\textsterling40 carbon tax.}}    
+%	\label{fig:demand99carbon40}
+%\end{figure}
 
+\begin{figure}
+	\includegraphics[width=0.8\linewidth]{figures/scenarios/demand099-carbon18-datetime.png}
+	\caption{\textsterling26 to \textsterling150 linearly increasing carbon tax up to the year 2050 with demand decreasing 1\% a year.}
+	\label{fig:demand99carbon18}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=0.8\linewidth]{figures/scenarios/demand099-carbon40-datetime.png}
+	\caption{{\textsterling40 carbon tax up to the year 2050 with demand decreasing 1\% a year.}}
+	\label{fig:demand99carbon40}
+\end{figure}
 
 
 
