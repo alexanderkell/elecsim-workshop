@@ -5,7 +5,7 @@
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.97\linewidth]{figures/System_overview}
+	\includegraphics[width=0.9\linewidth]{figures/System_overview}
 	\caption{High level system overview demonstrating fundamental parts of ElecSIM.}
 	\label{fig:systemoverview}
 \end{figure}
@@ -42,7 +42,7 @@ As per Chappin \textit{et al.} \cite{Chappin2017}, we modelled the LDC of electr
 
 % \subsubsection{Electricity Market} \label{sssec:electricity_market} A simulated electricity spot market is run every year. {\color{red}Figure \ref{fig:powermarket} displays the market process for each segment of demand.} Power plants bid the short run marginal cost (SRMC) of each power plant. SRMC is the price that it costs a generator to sell a unit of electrical power (1MWh) excluding fixed and capital costs. 
 
-The power exchange sorts bids in order of price, \vphantom{\color{red} as is shown in Figure \ref{fig:powermarket}}, and accepts the lowest bids until supply meets demand. Once supply meets demand, the spot price or system marginal price (SMP) is paid to all generators regardless of their initial bid. It is for this reason that generators are motivated to bid their SRMC, to ensure that their generator is being utilised, and reduce the risk of over bidding and not being selected.
+The power exchange sorts bids in order of price,\vphantom{\color{red} as is shown in Figure \ref{fig:powermarket}} and accepts the lowest bids until supply meets demand. Once supply meets demand, the spot price or system marginal price (SMP) is paid to all generators regardless of their initial bid. Generators are therefore motivated to bid their SRMC, to ensure that their generator is being utilised, and reduce the risk of overbidding.
 
 % {\color{red}Higher segments of demand command higher prices, due to more expensive generators being selected to meet demand. This leads to a price duration curve.
 % } 
@@ -56,7 +56,7 @@ The power exchange sorts bids in order of price, \vphantom{\color{red} as is sho
 
 \subsubsection{Investment}
 
-Investment in power plants is made based upon a net present value (NPV) calculation. NPV is a summation of the present value of a series of present and future cash flow. NPV provides a method for evaluating and comparing investments with cash flows spread over many years, making it suited to evaluating power plants which have a long lifetime. A positive NPV signifies that an investment is profitable. % {\color{red}NPV is based upon the fact that current cash flow is worth more than future cash flow. This is due to the fact that money today can be invested and have a rate of return. This means that, for example \$50,000 today is worth more than \$50,000 in 10 years time. The value in which future cash flow is worth less than present cash flow is discounted by the discount rate.}
+Investment in power plants is made based upon a net present value (NPV) calculation. NPV is a summation of the present value of a series of present and future cash flow. NPV provides a method for evaluating and comparing investments with cash flows spread over many years, making it suited for evaluating power plants which have a long lifetime. % {\color{red}NPV is based upon the fact that current cash flow is worth more than future cash flow. This is due to the fact that money today can be invested and have a rate of return. This means that, for example \$50,000 today is worth more than \$50,000 in 10 years time. The value in which future cash flow is worth less than present cash flow is discounted by the discount rate.}
 
 Equation \ref{eq:npv_eq} is the calculation of NPV, where $t$ is the year of the cash flow, $i$ is the discount rate, $N$ is total number of periods, or lifetime of power plant, and $R_t$ is the net cash flow at time $t$.
 
@@ -66,7 +66,7 @@ NPV(i, N) = \sum_{t=0}^{N}\frac{R_t}{(1+t)^t}
 
 A discount rate set by a firm's weighted average cost of capital (WACC) is often used \cite{KincheloeStephenC1990TWAC}. WACC is the rate that a company is expected to pay on average for its stock and debt. Therefore to achieve a positive NPV, an income larger than the WACC is required. However, a higher WACC is often selected to adjust for varying risk profiles, opportunity costs and rates of return. 
 
-The average WACC for power plants can be set in the configuration file. To account for varying WACC requirements, we have sampled differences in discount rates from the mean WACC with a Gaussian distribution, which can be set by the user. This was chosen to give sufficient variance between GenCos, without deviating from the expected price.
+The average WACC for power plants can be set in the configuration file. To account for varying WACC requirements, we have sampled differences in discount rates from a Gaussian distribution. This was chosen to give sufficient variance between GenCos, without deviating from the expected price.
 
 To calculate the NPV, future market conditions must be considered. For this, each GenCo forecasts $N$ years into the future, which we assume is representative of the lifetime of the plant.
 
