@@ -1,6 +1,9 @@
 %
 % The first command in your LaTeX source must be the \documentclass command.
 \documentclass[sigconf]{acmart}
+\makeatletter
+\renewcommand\@formatdoi[1]{\ignorespaces}
+\makeatother
 \usepackage{tabularx}
 \usepackage{multirow}
 \usepackage{csvsimple}
@@ -26,10 +29,12 @@
 \copyrightyear{2018}
 \acmYear{2018}
 \setcopyright{acmlicensed}
-\acmConference[e-Energy '19]{e-Energy '19: The Tenth International Conference on Future Energy Systems}{June 25--28, 2019}{Phoenix, AZ}
+\acmConference[e-Energy '19: The Tenth International Conference on Future Energy Systems, The 2nd International Workshop on Electricity Market Engineering]{e-Energy '19: The Tenth International Conference on Future Energy Systems, The 2nd International Workshop on Electricity Market Engineering}{June 25--28, 2019}{Phoenix, AZ}
 \acmPrice{15.00}
 \acmDOI{10.1145/1122445.1122456}
 \acmISBN{978-1-4503-9999-9/18/06}
+
+\settopmatter{printacmref=false}
 
 
 %
@@ -164,7 +169,6 @@
 %\end{acks}
 
 
-\clearpage
 %
 % The next two lines define the bibliography style to be used, and the bibliography file.
 \bibliographystyle{ACM-Reference-Format}

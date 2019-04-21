@@ -19,9 +19,9 @@
 
 ElecSIM is made up of five fundamental parts: the agents, which are split up into demand and generation companies (GenCos); power plants; a Power Exchange, which controls a spot market to match power plants with electricity demand; the world in which these agents and market exist; and the data for parametrisation.
 
-A schematic of ElecSIM is displayed in Figure \ref{fig:systemoverview} which displays these five fundamental sections and demonstrates how they interact. The main components are discussed below:
+A schematic of ElecSIM is displayed in Figure \ref{fig:systemoverview} which demonstrates how they interact.
 
-\subsubsection{Data parametrisation} To parametrise the world ElecSIM contains a configuration file and a collection of data sources. These data sources contain information such as historical fuel prices, historical plant availability, wind and solar capacity, power plant costs, historical costs, historical efficiency, company finances and historical carbon price. 
+\subsubsection{Data parametrisation} To parametrise the world, ElecSIM contains a configuration file and a collection of data sources. These data sources contain information such as historical fuel prices, historical plant availability, wind and solar capacity, power plant costs, historical costs, historical efficiency, company finances and historical carbon price. 
 
 The configuration file allows for rapid changes to test different hypothesis and scenarios, and points to previously mentioned data sources. The configuration file enables the changing of demand growth and shape, future fuel and carbon prices, capital costs, plant availability, investment costs and simulation time.
 
@@ -86,17 +86,17 @@ The estimation of power plant parameters is critical to electricity market model
 
 Users are able to initialise costs relevant to their particular country by providing detailed cost parameters, as shown in Table \ref{table:parameter_notation}. They can also provide an average cost per MWh produced over the lifetime of a plant, known as levelised cost of electricity (LCOE).
 
-The parameters in Table \ref{table:parameter_notation} are detailed here: Efficiency ($\eta$) is defined as the percentage of energy from fuel that is converted into electrical energy. Operating period ($OP$) is the total period in which a power plant is in operation. Pre-development period ($P_D$) and pre-development costs ($P_C$) include the time and costs for pre-licensing, technical and design, as well as costs incurred due to regulatory, licensing and public enquiry. The construction period ($C_D$) and construction costs ($C_C$) are incurred during the development of the plant, excluding network connections. The infrastructure costs ($I_C$) are the costs incurred by the developer in connecting the plant to the electricity or gas grid. Fixed operation \& maintenance costs ($F_C$) are costs incurred in operating the plant that do not vary based on output. Variable operation \& maintenance ($V_C$) costs are incurred in operating the plant that depend on generator output \cite{Ltd2016}.
+The parameters in Table \ref{table:parameter_notation} are detailed in this section. Periods have units of years and costs in \textsterling/MW unless otherwise stated: Efficiency ($\eta$) is defined as the percentage of energy from fuel that is converted into electrical energy (\%). Operating period ($OP$) is the total period in which a power plant is in operation. Pre-development period ($P_D$) and pre-development costs ($P_C$) include the time and costs for pre-licensing, technical and design, as well as costs incurred due to regulatory, licensing and public enquiry. The construction period ($C_D$) and construction costs ($C_C$) are incurred during the development of the plant, excluding network connections. The infrastructure costs ($I_C$) are the costs incurred by the developer in connecting the plant to the electricity or gas grid (\textsterling). Fixed operation \& maintenance costs ($F_C$) are costs incurred in operating the plant that do not vary based on output. Variable operation \& maintenance ($V_C$) costs are incurred in operating the plant that depend on generator output \cite{Ltd2016}.
 
 
 
-\begin{table}[h]
-	\centering
-	\csvautobooktabular{tables/notation_formated.csv}
-	\caption{Parameter notation. (Whilst the unit of currency displayed is \textsterling, this can be modified to other currencies eg. \$, \texteuro)}
-	\label{table:parameter_notation}
-\end{table}
-\addtolength{\textfloatsep}{-0.2in}
+%\begin{table}[h]
+%	\centering
+%	\csvautobooktabular{tables/notation_formated.csv}
+%	\caption{Parameter notation. (Whilst the unit of currency displayed is \textsterling, this can be modified to other currencies eg. \$, \texteuro)}
+%	\label{table:parameter_notation}
+%\end{table}
+%\addtolength{\textfloatsep}{-0.2in}
 
 Precise data is not available for every plant size. Linear interpolation is used to estimate individual prices between known points. When the plant to be estimated falls outside of the range of known data points, the closest power plant is used. %{\color{red}For example, the parameters of a 1,500MW combined cycle gas plant (CCGT) are estimated to be the same as a 1,200MW CCGT plant if the 1,200MW plant was the largest available data point. }
 
