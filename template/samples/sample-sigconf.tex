@@ -13,6 +13,8 @@
 \usepackage{amsfonts}
 \usepackage{booktabs}
 \usepackage{siunitx}
+\usepackage{array}
+
 %
 % defining the \BibTeX command - from Oren Patashnik's original BibTeX documentation.
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08emT\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
@@ -56,6 +58,7 @@
 %
 % end of the preamble, start of the body of the document source.
 
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
 \begin{document}
 
 %

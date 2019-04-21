@@ -1,5 +1,5 @@
 
-The world faces significant challenges from climate change \cite{Masson-Delmotte2018}. A rise in carbon emissions increases the risk of severe impacts on the world such as rising sea levels, heat waves and tropical cyclones \cite{IPCC2014}. 97\% of scientific literature concurs that the recent change in climate is anthropogenic \cite{Cook2013}.
+The world faces significant challenges from climate change \cite{Masson-Delmotte2018}. A rise in carbon emissions increases the risk of severe impacts on the world such as rising sea levels, heat waves and tropical cyclones \cite{IPCC2014}. A survey \cite{Cook2013} showed that 97\% of scientific literature concurs that the recent change in climate is anthropogenic.
 
  High carbon emitting electricity generation sources such as coal and natural gas currently produce 64\% of global electricity, whereas low carbon sources such as wind, solar, hydro and nuclear provide 34\% \cite{BP2018,Hall1983}. To bring about change and reach carbon-neutrality, a transition in the electricity mix is required.
 
@@ -30,13 +30,13 @@ The world faces significant challenges from climate change \cite{Masson-Delmotte
 
 Simulation is often used to increase understanding as well as to reduce risk and reduce uncertainty. Simulation allows practitioners to realise a physical system in a virtual model. In this context, a model is defined as an approximation of a system through the use of mathematical formulas and algorithms. Through simulation it is possible to test a system where real life experimentation would not be practical due to reasons such as prohibitively high costs, time constraints or risk of detrimental impacts. This has the dual benefit of minimising the risk of real decisions in the physical system, as well as allowing practitioners to test less risk-averse strategies.
 
-Agent-based modelling (ABM) is a class of computational simulation models composed of autonomous, interacting agents. ABMs are a way of modelling the dynamics of a complex system \cite{MacAl2010}. Due to the numerous and diverse actors involved in the generation, distribution and sale of electricity in liberalised electricity markets, ABMs have been used to model wholesale electricity markets \cite{Ringler2016a}.
+Agent-based modelling (ABM) is a class of computational simulation models composed of autonomous, interacting agents and are a way of modelling the dynamics of a complex system \cite{MacAl2010}. Due to the numerous and diverse actors involved in the generation, distribution and sale of electricity in liberalised electricity markets, ABMs have been used to model wholesale electricity markets \cite{Ringler2016a}.
 
-This paper presents ElecSIM, an open-source ABM that simulates generation companies (GenCos) in a wholesale electricity market. ElecSIM models GenCos as multiple agents and electricity demand as an aggregated agent (which can be expanded to include different types of demand such as industry, household and transport). A power exchange facilitates trades between the two. 
+This paper presents ElecSIM, an open-source ABM that simulates generation companies (GenCos) in a wholesale electricity market. ElecSIM models each GenCo as an independent agent and electricity demand as an aggregated agent (which can be expanded to segmented types of demand). A power exchange facilitates trades between the two. 
 
-GenCos actively make bids for each of their respective power plants to match demand. Their bids are based on\vphantom{\color{red}on their costs to supply a single unit (1MWh) of electricity, known as} their short run marginal cost (SRMC), which excludes capital and fixed costs. The power exchange links bids \vphantom{\color{red} with priority to the cheapest bids first, also known} using a merit-order dispatch. GenCos invest in power plants based on expected profitability of each plant.	
+GenCos make bids for each of their power plants. Their bids are based on their short run marginal cost (SRMC), which excludes capital and fixed costs. The power exchange accepts bids \vphantom{\color{red} with priority to the cheapest bids first, also known} in merit-order. GenCos invest in power plants based on expected profitability.	
 
-ElecSIM is a method to provide quantitative advice to policy makers, allowing them to test policy outcomes under different scenarios. They are able to modify a script to realise a scenario of their choice. It can also be used by energy market developers who can test new electricity sources or policy types, enabling the modelling of changing market conditions.
+ElecSIM is designed to provide quantitative advice to policy makers, allowing them to test policy outcomes under different scenarios. They are able to modify a script to realise a scenario of their choice. It can also be used by energy market developers who can test new electricity sources or policy types, enabling the modelling of changing market conditions.
 
 % {\color{red}
 % \begin{itemize}
@@ -56,6 +56,6 @@ ElecSIM is a method to provide quantitative advice to policy makers, allowing th
 
 
 
-In this paper we contribute a new open-source framework, ElecSIM, and test example scenarios by varying carbon taxes. Section \ref{Literature Review} is a literature review of the tools used in practice. Section \ref{Model} details the model and assumptions made, and Section \ref{Valdiation and Performance} details validation and displays performance metrics. Section \ref{Scenario Testing} details our results. We conclude the work and propose future work in Section \ref{Conclusion}.
+The contribution of this paper is a new open-source framework, ElecSIM, and test example scenarios produced by varying carbon taxes. Section \ref{Literature Review} is a literature review of the tools used in practice. Section \ref{Model} details the model and assumptions made, and Section \ref{Valdiation and Performance} details of the simulation and provides performance metrics. Section \ref{Scenario Testing} details our results. We conclude the work and propose future work in Section \ref{Conclusion}.
 
 
