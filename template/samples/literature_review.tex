@@ -1,23 +1,8 @@
+
+
 Live experimentation of physical processes is often not practical. The costs of real life experimentation can be prohibitively high, and can require significant time in order to fully ascertain the long-term trends. There is also a risk that changes can have detrimental impacts and therefore can lead to only minor tweaks being made ~\cite{Forshaw2016}. These factors are particularly true for electricity markets, where decisions can have long term impacts, as generation plants often having a long lifetime compounding decisions. Simulation, however, can be used for rapidly testing and prototyping ideas. The simulation is parametrised by real world data and phenomena. Through simulation, the user is able to assess the likelihoods of outcomes under certain scenarios and parameters \cite{Law:603360}.
 
 
-\begin{table}[]
-	%	\begin{tabular}{|l|c|c|c|c|c|}
-	\begin{tabular}{p{1.2cm}p{1cm}p{1cm}p{1cm}p{1.2cm}p{1cm}} \toprule
-		\multicolumn{1}{c}{\textbf{Tool name}} & \textbf{Open Source} & \textbf{Long-Term Investment} & \textbf{Market} & \textbf{Stochastic Inputs} & \textbf{Country Generalisability} \\ \midrule
-		SEPIA \cite{Harp2000}  & \checkmark           & $\times$                             & \checkmark      & Demand                     & \checkmark                        \\ 
-		EMCAS ~\cite{Conzelmann}   & $\times$                    & \checkmark                    & \checkmark      & Outages                    & \checkmark                        \\ 
-		NEMSIM ~\cite{Batten2006}  & ?              & \checkmark                    & \checkmark      & $\times$                          & $\times$                                 \\ 
-		AMES  ~\cite{Sun2007} & \checkmark           & $\times$                             & Day-ahead       & $\times$                          & $\times$                                 \\ 
-		PowerACE\cite{Rothengatter2007} & $\times$                    & \checkmark                    & \checkmark      & Outages Demand             & \checkmark                        \\ 
-		MACSEM  ~\cite{Praca2003}  & ?              & $\times$                             & \checkmark      & $\times$                          & \checkmark                        \\ 
-		GAPEX  ~\cite{Cincotti2013} & ?              & $\times$                             & Day-ahead       & $\times$                          & \checkmark                        \\ 
-		EMLab ~\cite{Chappin2017}  & \checkmark           & \checkmark                    & Futures         & $\times$                          & \checkmark                        \\ 
-		ElecSIM                                  & \checkmark           & \checkmark                    & Futures         & \checkmark                 & \checkmark                        \\ \hline
-	\end{tabular}
-	\caption{Features of electricity market agent based model tools.}
-	\label{table:tool_comparison}
-\end{table}
 
 %\begin{table*}[]
 %%	\begin{tabular}{|l|c|c|c|c|c|}
@@ -70,6 +55,24 @@ AMES ~\cite{Sun2007} is an ABM specific to the US Wholesale Power Market Platfor
 
 As can be seen from Table \ref{table:tool_comparison} none of the tools fill each of the characteristics we have defined. We therefore propose ElecSIM to contribute an open source, long-term, stochastic investment model. 
 
+
+\begin{table}[]
+	%	\begin{tabular}{|l|c|c|c|c|c|}
+	\begin{tabular}{p{1.2cm}p{1cm}p{1cm}p{1cm}p{1.2cm}p{1cm}} \toprule
+		\multicolumn{1}{c}{\textbf{Tool name}} & \textbf{Open Source} & \textbf{Long-Term Investment} & \textbf{Market} & \textbf{Stochastic Inputs} & \textbf{Country Generalisability} \\ \midrule
+		SEPIA \cite{Harp2000}  & \checkmark           & $\times$                             & \checkmark      & Demand                     & \checkmark                        \\ 
+		EMCAS ~\cite{Conzelmann}   & $\times$                    & \checkmark                    & \checkmark      & Outages                    & \checkmark                        \\ 
+		NEMSIM ~\cite{Batten2006}  & ?              & \checkmark                    & \checkmark      & $\times$                          & $\times$                                 \\ 
+		AMES  ~\cite{Sun2007} & \checkmark           & $\times$                             & Day-ahead       & $\times$                          & $\times$                                 \\ 
+		PowerACE\cite{Rothengatter2007} & $\times$                    & \checkmark                    & \checkmark      & Outages Demand             & \checkmark                        \\ 
+		MACSEM  ~\cite{Praca2003}  & ?              & $\times$                             & \checkmark      & $\times$                          & \checkmark                        \\ 
+		GAPEX  ~\cite{Cincotti2013} & ?              & $\times$                             & Day-ahead       & $\times$                          & \checkmark                        \\ 
+		EMLab ~\cite{Chappin2017}  & \checkmark           & \checkmark                    & Futures         & $\times$                          & \checkmark                        \\ 
+		ElecSIM                                  & \checkmark           & \checkmark                    & Futures         & \checkmark                 & \checkmark                        \\ \hline
+	\end{tabular}
+	\caption{Features of electricity market agent based model tools.}
+	\label{table:tool_comparison}
+\end{table}
 
 %\begin{itemize}
 %	\item Agent Based Models - eg. EMCAS, PowerACE, EMLab: Leaves a requirement for an open source toolkit written in python. Many one-off models available, however difficult to apply to different scenarios.
