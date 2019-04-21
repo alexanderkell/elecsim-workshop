@@ -13,12 +13,25 @@ We begin by comparing the price duration curve in the year 2018. Figure \ref{fig
 	\end{center}
 \end{figure}
 
-\begin{table}
-	\centering
-	\csvautobooktabular{tables/validation/initialisation_run_validation.csv}
-	\caption{Validation performance metrics.}
-	\label{table:validation_metrics}
+%\begin{table}
+%	\centering
+%	\csvautobooktabular{tables/validation/initialisation_run_validation.csv}
+%	\caption{Validation performance metrics.}
+%	\label{table:validation_metrics}
+%\end{table}
+
+
+\begin{table}[]
+\begin{tabular}{p{3cm}p{1.4cm}p{1cm}p{1.5cm}}
+\hline
+Figure & N2EX Day Ahead & ElecSIM & Non-Stochastic \\ \hline
+Avg. Price (\textsterling/MWh) & 57.49 & 57.52 & 53.39 \\
+Std. dev (\textsterling/MWh) & - & 9.64 & - \\
+MAE (\textsterling/MWh) & - & 3.97 & 8.35 \\
+RMSE (\textsterling/MWh) & - & 4.41 & 10.2 \\ \hline
+\end{tabular}
 \end{table}
+
 
 We ran the initialisation of the model 40 times to capture the price variance. Outliers were removed as on a small number of occasions large jumps in prices at peak demand occurred which deviated from the mean. We did this, as although this does occur in real life, it occurs at a smaller fraction of the time than 5\% of the year (modelled LDC), therefore the results would be unreasonably skewed for the highest demand segment. 
 

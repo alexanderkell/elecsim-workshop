@@ -1,6 +1,6 @@
 
 
-Table \ref{table:modern_plant_costs} shows a sample of modern power plant costs, and Table \ref{table:historic_plant_costs} displays a sample of historic power plant costs. The parameters for both of these tables are described in Table \ref{table:parameter_notation} and explained in Section \ref{ssssec:powerplantparameters}
+Table \ref{table:modern_plant_costs} shows a sample of modern power plant costs, and Table \ref{table:historic_plant_costs} displays a sample of historic power plant costs. The parameters for both of these tables are explained in Section \ref{ssssec:powerplantparameters}
 
 Table \ref{table:scenario_statistics} displays summary statistics for each scenario run. It demonstrates the demand and whether it increases or decreases and by the percentage of change. Carbon tax price in \textsterling\ per tonne of \ce{CO2}. Year range in which the summary statistics apply. 
 
@@ -10,7 +10,6 @@ We then split the low carbon and traditional generation into two groups. Traditi
 
 
 \begin{table*}[]
-	\caption{Modern power plant costs \cite{Department2016}}
 	\begin{tabularx}{1.0205\linewidth}{|l|l|c|l|l|l|l|l|l|l|l|l|l|l|}
 	\hline
 	Type & Capacity & Year & $\eta$ & $OP$ & $P_D$ & $C_D$ & $P_C$ & $C_C$ & $I_C$ & $F_C$ & $V_C$ & $In_C$ & $Con_C$ \\ \hline
@@ -64,14 +63,15 @@ We then split the low carbon and traditional generation into two groups. Traditi
 	Recip. Engine (Gas) & 20.0 & 2018/20/25 & 0.32 & 15 & 2 & 1 & 10,000 & 300,000 & 3,400 & 10,000 & 2 & 1,000 & -31,900 \\ \hline
 		
 	\end{tabularx}
-		\label{table:modern_plant_costs}
+	
+	\label{table:modern_plant_costs}
+	\caption{Modern power plant costs \cite{Department2016}}
 \end{table*}
 
 
 % Please add the following required packages to your document preamble:
 % \usepackage{multirow}
-\begin{table}[]
-	\caption{Sample of historic power plant costs \cite{IRENA2018,IEA2015,OWPB2016}} 
+\begin{table*}[]
 	\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|l|l|}
 	\hline
 	Type & Capacity & Year & $\eta$ & $OP$ & $P_D$ & $C_D$ & $P_C$ & $C_C$ & $I_C$ & $F_C$ & $V_C$ & $In_C$ & $Con_C$ \\ \hline
@@ -133,11 +133,12 @@ We then split the low carbon and traditional generation into two groups. Traditi
 	&  & 2010 & 0.0 & 25 & 1 & 0 & 399,799 & 3,997,991 & 2,284 & 31,983 & 0 & 11,422 & 7,424 \\ \hline
 	\end{tabular}
 	\label{table:historic_plant_costs}
-\end{table}
+	\caption{Sample of historic power plant costs \cite{IRENA2018,IEA2015,OWPB2016}} 
+\end{table*}
 
 \clearpage
 
-\subsection{Scenario Runs}
+%\subsection{Scenario Runs}
 
 %\begin{table}[h]
 %	\centering
@@ -150,8 +151,7 @@ We then split the low carbon and traditional generation into two groups. Traditi
 
 
 
-\begin{table}[H]
-	\caption{Summary statistics for each scenario run.}
+\begin{table*}[H]
 	\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|}
 		\hline
 		\multirow{2}{*}{\textbf{Demand}} & \multirow{2}{*}{\textbf{Carbon Tax}} & \multirow{2}{*}{\textbf{Year Range}} & \multicolumn{4}{l|}{\textbf{Low Carbon}} & \multicolumn{4}{l|}{\textbf{Traditional Generation}} \\ \cline{4-11} 
@@ -206,4 +206,5 @@ We then split the low carbon and traditional generation into two groups. Traditi
 		&  & 2039-2050 & 91.77 & 10.37 & 67.5 & 100.0 & 8.23 & 10.37 & 0.0 & 32.5 \\ \hline
 	\end{tabular}
 	\label{table:scenario_statistics}
-\end{table}
+	\caption{Summary statistics for each scenario run.}
+\end{table*}
