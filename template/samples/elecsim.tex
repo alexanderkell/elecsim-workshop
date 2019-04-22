@@ -17,11 +17,11 @@
 
 ElecSIM is made up of five fundamental parts: the agents, which are split up into demand and GenCos; power plants; a Power Exchange, which controls a spot market to match power plants with electricity demand; and the data for parametrisation. A schematic of ElecSIM is displayed in Figure \ref{fig:systemoverview} which demonstrates how they interact.
 
-\subsubsection{Data parametrisation} To parametrise the world, ElecSIM contains a configuration file and a collection of data sources. These data sources contain information such as historical fuel prices, historical plant availability, wind and solar capacity.
+\paragraph{Data parametrisation} To parametrise the world, ElecSIM contains a configuration file and a collection of data sources. These data sources contain information such as historical fuel prices, historical plant availability, wind and solar capacity.
 
 The configuration file allows for rapid changes to test different hypothesis and scenarios, and points to the different data sources. The configuration file enables one to change the demand growth and shape, future fuel and carbon prices, capital costs, plant availability, invexstment costs and simulation time.
 
-\subsubsection{Demand Agent}
+\paragraph{Demand Agent}
 The demand agent is a simplified representation of aggregated demand in a country. The demand is represented as a load duration curve (LDC). \vphantom{\color{red}An example load duration curve for a year is demonstrated in Figure \ref{fig:loaddurationcurve}.} An LDC is an arrangement of all load levels in descending order of magnitude. \vphantom{\color{red}, where the lowest segment demand demonstrates baseload, and the highest segment represents peak demand.} Each year, the demand agent changes each of the LDC segments proportionally.
 
 % \begin{figure}
@@ -34,7 +34,7 @@ The demand agent is a simplified representation of aggregated demand in a countr
 As per Chappin \textit{et al.} \cite{Chappin2017}, we modelled the LDC of electricity demand with twenty segments. Twenty segments enabled us to capture the variation in demand throughout the year to a high degree of accuracy, whilst reducing computational complexity. 
 
 
-\subsubsection{Generation Company Agents} The GenCos have two main functions. Investing in power plants and making bids to sell their generation capacity. We will first focus on the buying and selling of electricity, and then cover the investment algorithm.
+\paragraph{Generation Company Agents} The GenCos have two main functions. Investing in power plants and making bids to sell their generation capacity. We will first focus on the buying and selling of electricity, and then cover the investment algorithm.
 
 % \subsubsection{Electricity Market} \label{sssec:electricity_market} A simulated electricity spot market is run every year. {\color{red}Figure \ref{fig:powermarket} displays the market process for each segment of demand.} Power plants bid the short run marginal cost (SRMC) of each power plant. SRMC is the price that it costs a generator to sell a unit of electrical power (1MWh) excluding fixed and capital costs. 
 
@@ -50,7 +50,7 @@ The power exchange \vphantom{\color{red} as is shown in Figure \ref{fig:powermar
 %  	\label{fig:powermarket}
 % \end{figure}
 
-\subsubsection{Investment}
+\paragraph{Investment}
 
 Investment in power plants is made based upon a net present value (NPV) calculation. NPV is a summation of the present value of a series of present and future cash flow. NPV provides a method for evaluating and comparing investments with cash flows spread over many years, making it suited for evaluating power plants which have a long lifetime.  \vphantom{\color{red}NPV is based upon the fact that current cash flow is worth more than future cash flow. This is due to the fact that money today can be invested and have a rate of return. This means that, for example \$50,000 today is worth more than \$50,000 in 10 years time. The value in which future cash flow is worth less than present cash flow is discounted by the discount rate.}
 
@@ -72,7 +72,7 @@ However, there may be scenarios where demand is forecast to grow significantly, 
 
 Once this data has been forecasted\vphantom{Once expected fuel prices, carbon price, discount rate, and expected sale price of electricity are all forecast}, the NPV can be calculated. GenCos must typically provide a certain percentage of upfront capital, with the rest coming from investors in the form of stock and shares or debt (WACC). The percentage of upfront capital can be customised by the user in the configuration file. The GenCos then invest the power plants with the highest NPV. 
 
-\subsubsection{Power Plant Parameters}\label{ssssec:powerplantparameters}
+\paragraph{Power Plant Parameters}\label{ssssec:powerplantparameters}
 
 \vphantom{The estimation of power plant parameters is critical to electricity market models.}Costs form an important element of markets and investment, and publicly available data for power plant costs for individual countries can be scarce. Thus, extrapolation and interpolation is required to estimate costs for power plants of differing sizes, types and years of construction.
 
