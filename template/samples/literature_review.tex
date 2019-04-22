@@ -27,9 +27,9 @@ Live experimentation of physical processes is often not practical. The costs of 
 
 Energy models can typically be classified as top-down macro-economic models or bottom-up techno-economic models~\cite{Bohringer1998}. Top-down models typically focus on behavioural realism with a focus on macro-economic metrics. They are useful for studying economy-wide responses to policies ~\cite{Hall2016}, for example MARKAL-MACRO \cite{Fishbone1981} and LEAP \cite{Heaps2016}. Bottom-up models represent the energy sector in detail, and are written as mathematical programming problems~\cite{Gargiulo2013}. They detail technology explicitly, and can include cost and emissions implications~\cite{Hall2016}.
 
-It is possible to further categorise bottom-up models into optimisation and simulation models. Optimisation energy models minimise costs or maximise welfare, defined as the material and physical well-being of people, from the perspective of a central planner ~\cite{Keles2017}. A use-case would be a government that wants cheap, reliable and a low-carbon electricity supply by a specified date. An optimisation model would find the optimal mix of generators to meet this whilst taking into account constraints such as space, resources and demand. Examples of optimisation models are MARKAL/TIMES~\cite{Fishbone1981} and MESSAGE~\cite{Schrattenholzer1981}. MARKAL is possibly the most widely used general purpose energy systems model~\cite{Pfenninger2014}.
+It is possible to further categorise bottom-up models into optimisation and simulation models. Optimisation energy models minimise costs or maximise welfare, defined as the material and physical well-being of people, from the perspective of a central planner ~\cite{Keles2017}.s Examples of optimisation models are MARKAL/TIMES~\cite{Fishbone1981} and MESSAGE~\cite{Schrattenholzer1981}. MARKAL is possibly the most widely used general purpose energy systems model~\cite{Pfenninger2014}.
 
-However, electricity market liberalisation in many western democracies has changed the framework conditions. Centralised, monopolistic, decision making entities have given way to multiple heterogeneous agents acting for their own best interest~\cite{Most2010}. Policy options must therefore be used to encourage changes to attain a desired outcome, such as subsidies or taxes. It is proposed that these complex agents are modelled using ABMs due to their non-deterministic nature. 
+However, electricity market liberalisation in many western democracies has changed the framework conditions. Centralised, monopolistic, decision making entities have given way to multiple heterogeneous agents acting for their own best interest~\cite{Most2010}. Policy options must therefore be used to encourage changes to attain a desired outcome. It is proposed that these complex agents are modelled using ABMs due to their non-deterministic nature. 
 
 % {\color{red}Agent-based simulation for electricity markets has received increasing attention in recent years. }
 
@@ -41,14 +41,14 @@ However, electricity market liberalisation in many western democracies has chang
 
 \begin{table}[]
 	%	\begin{tabular}{|l|c|c|c|c|c|}
-	\begin{tabular}{M{0.9cm}M{1cm}M{1cm}M{1cm}M{1.2cm}M{1cm}} \toprule
+	\begin{tabular}{M{2cm}M{0.8cm}M{1cm}M{0.8cm}M{1.2cm}M{1cm}} \toprule
 		\multicolumn{1}{c}{\textbf{Tool name}} & \textbf{Open Source} & \textbf{Long-Term Investment} & \textbf{Market} & \textbf{Stochastic Inputs} & \textbf{Country Generalisability} \\ \midrule
 		SEPIA \cite{Harp2000}  & \checkmark           & $\times$                             & \checkmark      & Demand                     & \checkmark                        \\ 
 		EMCAS ~\cite{Conzelmann}   & $\times$                    & \checkmark                    & \checkmark      & Outages                    & \checkmark                        \\ 
 		NEMSIM ~\cite{Batten2006}  & ?              & \checkmark                    & \checkmark      & $\times$                          & $\times$                                 \\ 
 		AMES  ~\cite{Sun2007} & \checkmark           & $\times$                             & Day-ahead       & $\times$                          & $\times$                                 \\ 
 		GAPEX  ~\cite{Cincotti2013} & ?              & $\times$                             & Day-ahead       & $\times$                          & \checkmark                        \\ 
-		PowerACE\\\cite{Rothengatter2007} & $\times$                    & \checkmark                    & \checkmark      & Outages Demand             & \checkmark                        \\ 
+		PowerACE \cite{Rothengatter2007} & $\times$                    & \checkmark                    & \checkmark      & Outages Demand             & \checkmark                        \\ 
 
 		EMLab ~\cite{Chappin2017}  & \checkmark           & \checkmark                    & Futures         & $\times$                          & \checkmark                        \\ 
 		MACSEM  ~\cite{Praca2003}  & ?              & $\times$                             & \checkmark      & $\times$                          & \checkmark                        \\ 
@@ -60,14 +60,14 @@ However, electricity market liberalisation in many western democracies has chang
 \end{table}
 
 
-A number of simulation tools have emerged which model electricity markets: SEPIA~\cite{Harp2000} EMCAS~\cite{Conzelmann}, NEMSIM~\cite{Batten2006}, AMES~\cite{Sun2007}, PowerACE~\cite{Rothengatter2007}, MACSEM ~\cite{Praca2003}, GAPEX~\cite{Cincotti2013} and  EMLab~\cite{Chappin2017}. By referring to Table \ref{table:tool_comparison}, it can be seen that these do not suit the needs of an open source, long-term market model. We will demonstrate that stochasticity of parameters is also required to increase realism.
+A number of ABM tools have emerged which model electricity markets: SEPIA~\cite{Harp2000} EMCAS~\cite{Conzelmann}, NEMSIM~\cite{Batten2006}, AMES~\cite{Sun2007}, GAPEX~\cite{Cincotti2013}, PowerACE~\cite{Rothengatter2007}, EMLab~\cite{Chappin2017} and MACSEM ~\cite{Praca2003}. By referring to Table \ref{table:tool_comparison}, it can be seen that these do not suit the needs of an open source, long-term market model. We will demonstrate that stochasticity of parameters is also required to increase realism.
 
-Table \ref{table:tool_comparison} is made up of six columns. Tool name, whether the tool is open source or not, whether they model long-term investment in electricity infrastructure such as power plants and what markets they model. We determine how the stochasticity of real life is modelled in each tool. Finally, we determine whether the model is generalisable to different countries or whether it is specific to a particular country's regulatory structure. 
+Table \ref{table:tool_comparison} is made up of six columns. Tool name, whether the tool is open source or not, whether they model long-term investment in electricity infrastructure such as power plants and what markets they model. We determine how the stochasticity of real life is modelled in each tool. Finally, we determine whether the model is generalisable to different countries. 
 
 
 An open source toolkit is important for reproducibility, transparency and lowering barriers to entry. It enables users to expand the model to their requirements and respective country. The modelling of long-term investment enables scenarios to emerge, and enable users to model investment behaviour. We demonstrate that stochasticity improves results.
 
-SEPIA \cite{Harp2000} is a discrete event ABM which utilises Q-learning to model the bids made by GenCos. SEPIA models plants as being always on, and does not have an independent system operator (ISO) which in an electricity market, is an independent non-profit organization for coordinating and controlling of regular operations of the electric power system and market \cite{Zhou2007} SEPIA does not model a spot market, instead focusing on bilateral contracts. As opposed to this, ElecSIM has been designed with a merit-order, spot market in mind. As shown in Table \ref{table:tool_comparison}, SEPIA does not include a long-term investment mechanism. 
+SEPIA \cite{Harp2000} is a discrete event ABM which utilises Q-learning to model the bids made by GenCos. SEPIA models plants as being always on, and does not have an independent system operator (ISO), which in an electricity market, is an independent non-profit organization for coordinating and controlling of regular operations of the electric power system and market \cite{Zhou2007}. SEPIA does not model a spot market, instead focusing on bilateral contracts. As opposed to this, ElecSIM has been designed with a merit-order, spot market in mind. As shown in Table \ref{table:tool_comparison}, SEPIA does not include a long-term investment mechanism. 
 
 EMCAS ~\cite{Conzelmann} is a closed source ABM. EMCAS investigates the interactions between physical infrastructures and economic behaviour of agents. However, ElecSIM focuses on the dynamics of the market, and provides a simplified, transparent model of market operation, whilst maintaining robustness of results.
 

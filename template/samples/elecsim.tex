@@ -1,8 +1,5 @@
 
 
-
-\subsection{Overview}
-
 \begin{figure}
 	\centering
 	\includegraphics[width=0.9\linewidth]{figures/System_overview}
@@ -17,16 +14,14 @@
 	\label{fig:lowlevelsystem}
 \end{figure*}
 
-ElecSIM is made up of five fundamental parts: the agents, which are split up into demand and generation companies (GenCos); power plants; a Power Exchange, which controls a spot market to match power plants with electricity demand; the world in which these agents and market exist; and the data for parametrisation.
+ElecSIM is made up of five fundamental parts: the agents, which are split up into demand and GenCos; power plants; a Power Exchange, which controls a spot market to match power plants with electricity demand; and the data for parametrisation. A schematic of ElecSIM is displayed in Figure \ref{fig:systemoverview} which demonstrates how they interact.
 
-A schematic of ElecSIM is displayed in Figure \ref{fig:systemoverview} which demonstrates how they interact.
+\subsubsection{Data parametrisation} To parametrise the world, ElecSIM contains a configuration file and a collection of data sources. These data sources contain information such as historical fuel prices, historical plant availability, wind and solar capacity.
 
-\subsubsection{Data parametrisation} To parametrise the world, ElecSIM contains a configuration file and a collection of data sources. These data sources contain information such as historical fuel prices, historical plant availability, wind and solar capacity, power plant costs, historical costs, historical efficiency, company finances and historical carbon price. 
-
-The configuration file allows for rapid changes to test different hypothesis and scenarios, and points to previously mentioned data sources. The configuration file enables one to change the demand growth and shape, future fuel and carbon prices, capital costs, plant availability, investment costs and simulation time.
+The configuration file allows for rapid changes to test different hypothesis and scenarios, and points to the different data sources. The configuration file enables one to change the demand growth and shape, future fuel and carbon prices, capital costs, plant availability, investment costs and simulation time.
 
 \subsubsection{Demand Agent}
-The demand agent is a simplified representation of aggregated demand in a particular country. The demand is represented as a load duration curve (LDC). \vphantom{\color{red}An example load duration curve for a year is demonstrated in Figure \ref{fig:loaddurationcurve}}. A LDC is an arrangement of all load levels in descending order of magnitude, where the lowest segment demand demonstrates baseload, and the highest segment represents peak demand. Each year, the demand agent increases each of the LDC segments proportionally, increasing demand but maintaining the ratios between segments.
+The demand agent is a simplified representation of aggregated demand in a particular country. The demand is represented as a load duration curve (LDC). \vphantom{\color{red}An example load duration curve for a year is demonstrated in Figure \ref{fig:loaddurationcurve}.} An LDC is an arrangement of all load levels in descending order of magnitude, where the lowest segment demand demonstrates baseload, and the highest segment represents peak demand. Each year, the demand agent changes each of the LDC segments proportionally.
 
 % \begin{figure}
 % 	\centering
@@ -78,7 +73,7 @@ However, there may be scenarios where demand is forecast to grow significantly, 
 
 Once expected fuel prices, carbon price, discount rate, and expected sale price of electricity are all forecast, the NPV can be calculated. GenCos must typically provide a certain percentage of upfront capital, with the rest coming from investors in the form of stock and shares or debt (WACC). The percentage of upfront capital can be customised by the user in the configuration file. The GenCos then invest the power plants with the highest NPV. 
 
-\subsection{Power Plant Parameters}\label{ssssec:powerplantparameters}
+\subsubsection{Power Plant Parameters}\label{ssssec:powerplantparameters}
 
 The estimation of power plant parameters is critical to electricity market models. Costs form an important element of markets and investment, and publicly available data for power plant costs for individual countries can be scarce. Thus, extrapolation and interpolation is required to estimate costs for power plants of differing sizes, types and years of construction.
 
@@ -108,7 +103,7 @@ To model the intermittency of wind and solar power we allow them to contribute o
 
 When initialised, $V_C$ is selected from a uniform distribution, with the ability for the user to set maximum percentage increase or decrease. A uniform distribution was chosen to capture the large deviations that can occur in $V_C$, especially over a long time period. \vphantom{By doing this, the variance in costs between individual power plants for processes such as preventative and corrective maintenance, labour costs and skill, health and safety and chance are different per plant instant.}
 
-Fuel price is controlled by the user, however, there is inherent volatility in fuel price. To take into account this variability, an ARIMA \cite{ARIMA} model was fit to historical gas and coal price data. The standard deviation of the residuals was used to model the variance in price that a generation company will buy fuel in a given year. This considers differences in chance and hedging strategies.
+Fuel price is controlled by the user, however, there is inherent volatility in fuel price. To take into account this variability, an ARIMA \cite{ARIMA} model was fit to historical gas and coal price data. The standard deviation of the residuals was used to model the variance in price that a GenCo will buy fuel in a given year. This considers differences in chance and hedging strategies.
 
 
 %\vphantom{With historical power plants which have been refurbished, we sample their initialisation randomly between 15 years prior to the initialisation year and the initialisation year. This is done because there is rarely a comprehensive data set on when plants are refurbished. 15 years was chosen due to the fact that plants often have an operating period of 25 years, and therefore 15 years allowed for sufficient variance in results, whilst keeping plants in operation.}
