@@ -3,8 +3,9 @@
 \begin{figure}
 	\centering
 	\includegraphics[width=0.9\linewidth]{figures/System_overview}
-	\caption{High level system overview demonstrating fundamental parts of ElecSIM.}
+	\caption{High level overview.}
 	\label{fig:systemoverview}
+	\vskip -7mm
 \end{figure}
 
 \begin{figure*}
@@ -18,10 +19,10 @@ ElecSIM is made up of five fundamental parts: the agents, which are split up int
 
 \subsubsection{Data parametrisation} To parametrise the world, ElecSIM contains a configuration file and a collection of data sources. These data sources contain information such as historical fuel prices, historical plant availability, wind and solar capacity.
 
-The configuration file allows for rapid changes to test different hypothesis and scenarios, and points to the different data sources. The configuration file enables one to change the demand growth and shape, future fuel and carbon prices, capital costs, plant availability, investment costs and simulation time.
+The configuration file allows for rapid changes to test different hypothesis and scenarios, and points to the different data sources. The configuration file enables one to change the demand growth and shape, future fuel and carbon prices, capital costs, plant availability, invexstment costs and simulation time.
 
 \subsubsection{Demand Agent}
-The demand agent is a simplified representation of aggregated demand in a particular country. The demand is represented as a load duration curve (LDC). \vphantom{\color{red}An example load duration curve for a year is demonstrated in Figure \ref{fig:loaddurationcurve}.} An LDC is an arrangement of all load levels in descending order of magnitude, where the lowest segment demand demonstrates baseload, and the highest segment represents peak demand. Each year, the demand agent changes each of the LDC segments proportionally.
+The demand agent is a simplified representation of aggregated demand in a country. The demand is represented as a load duration curve (LDC). \vphantom{\color{red}An example load duration curve for a year is demonstrated in Figure \ref{fig:loaddurationcurve}.} An LDC is an arrangement of all load levels in descending order of magnitude. \vphantom{\color{red}, where the lowest segment demand demonstrates baseload, and the highest segment represents peak demand.} Each year, the demand agent changes each of the LDC segments proportionally.
 
 % \begin{figure}
 % 	\centering
@@ -33,11 +34,11 @@ The demand agent is a simplified representation of aggregated demand in a partic
 As per Chappin \textit{et al.} \cite{Chappin2017}, we modelled the LDC of electricity demand with twenty segments. Twenty segments enabled us to capture the variation in demand throughout the year to a high degree of accuracy, whilst reducing computational complexity. 
 
 
-\subsubsection{Generation Company Agents} The GenCos have two main functions. Investing in power plants and making bids to sell the generation capacity for each of their power plants. We will first focus on the buying and selling of electricity using a Power Exchange, and then cover the investment algorithm used by GenCos.
+\subsubsection{Generation Company Agents} The GenCos have two main functions. Investing in power plants and making bids to sell their generation capacity. We will first focus on the buying and selling of electricity, and then cover the investment algorithm.
 
 % \subsubsection{Electricity Market} \label{sssec:electricity_market} A simulated electricity spot market is run every year. {\color{red}Figure \ref{fig:powermarket} displays the market process for each segment of demand.} Power plants bid the short run marginal cost (SRMC) of each power plant. SRMC is the price that it costs a generator to sell a unit of electrical power (1MWh) excluding fixed and capital costs. 
 
-The power exchange sorts bids in order of price,\vphantom{\color{red} as is shown in Figure \ref{fig:powermarket}} and accepts the lowest bids until supply meets demand. Once supply meets demand, the spot price or system marginal price (SMP) is paid to all generators regardless of their initial bid. Generators are therefore motivated to bid their SRMC, to ensure that their generator is being utilised, and reduce the risk of overbidding.
+The power exchange \vphantom{\color{red} as is shown in Figure \ref{fig:powermarket}} accepts the lowest bids until supply meets demand. Once this condition is met, the spot price or system marginal price (SMP) is paid to all generators regardless of their initial bid. Generators are motivated to bid their SRMC, to ensure that their generator is being utilised, and reduce the risk of overbidding.
 
 % {\color{red}Higher segments of demand command higher prices, due to more expensive generators being selected to meet demand. This leads to a price duration curve.
 % } 
@@ -51,7 +52,7 @@ The power exchange sorts bids in order of price,\vphantom{\color{red} as is show
 
 \subsubsection{Investment}
 
-Investment in power plants is made based upon a net present value (NPV) calculation. NPV is a summation of the present value of a series of present and future cash flow. NPV provides a method for evaluating and comparing investments with cash flows spread over many years, making it suited for evaluating power plants which have a long lifetime. % {\color{red}NPV is based upon the fact that current cash flow is worth more than future cash flow. This is due to the fact that money today can be invested and have a rate of return. This means that, for example \$50,000 today is worth more than \$50,000 in 10 years time. The value in which future cash flow is worth less than present cash flow is discounted by the discount rate.}
+Investment in power plants is made based upon a net present value (NPV) calculation. NPV is a summation of the present value of a series of present and future cash flow. NPV provides a method for evaluating and comparing investments with cash flows spread over many years, making it suited for evaluating power plants which have a long lifetime.  \vphantom{\color{red}NPV is based upon the fact that current cash flow is worth more than future cash flow. This is due to the fact that money today can be invested and have a rate of return. This means that, for example \$50,000 today is worth more than \$50,000 in 10 years time. The value in which future cash flow is worth less than present cash flow is discounted by the discount rate.}
 
 Equation \ref{eq:npv_eq} is the calculation of NPV, where $t$ is the year of the cash flow, $i$ is the discount rate, $N$ is total number of periods, or lifetime of power plant, and $R_t$ is the net cash flow at time $t$.
 \begin{equation} \label{eq:npv_eq}
@@ -61,21 +62,19 @@ A discount rate set by a GenCo's weighted average cost of capital (WACC) is ofte
 
 The average WACC for power plants can be set in the configuration file. To account for varying WACC requirements, we have sampled differences in discount rates from a Gaussian distribution. This was chosen to give sufficient variance between GenCos, without deviating from the expected price.
 
-To calculate the NPV, future market conditions must be considered. For this, each GenCo forecasts $N$ years into the future, which we assume is representative of the lifetime of the plant.
-
-As in the real world, GenCos have imperfect information, and therefore must forecast expected demand, fuel prices, carbon price and electricity sale price. This is achieved by fitting functions to historical data. Each GenCo is different in that they will use differing historical time periods of data for forecasting. The distribution of this is configurable in the configuration file, referred to in Figure \ref{fig:systemoverview}.
+To calculate the NPV, future market conditions must be considered. For this, each GenCo forecasts $N$ years into the future, which we assume is representative of the lifetime of the plant. As in the real world, GenCos have imperfect information, and therefore must forecast expected demand, fuel prices, carbon price and electricity sale price. This is achieved by fitting functions to historical data. Each GenCo is different in that they will use differing historical time periods of data for forecasting.
 
 Fuel price and carbon price are forecast using a linear regression. Demand, however, is first forecast using an exponential function, which considers compounded growth. Linear regression is used if an exponential function is found to be sub-optimal.
 
 This forecasted data is then used to simulate a market $N$ years into the future using the electricity market algorithm. We simulate a market based on the expected bids -- based on SRMC -- that every operating power plant will make. This includes the removal of plants that will be past their operating period, and the introduction of plants that are in construction or pre-development stages. 
 
-However, there may be scenarios where demand is forecast to grow significantly, and limited investments have been made to meet demand $N$ years into the future. The expected price, would therefore be that of lost load. Lost load is defined as the price customers would be willing to pay to avoid disruption in their electricity supply. To avoid GenCos from predicting that large profits will be made, and under the assumption that further power plant investments will be made by competing GenCos, the lost load price is replaced with a predicted electricity price using linear regression based on prices at lower points of the demand curve. If zero segments of demand are met (ie. total supply of generators is smaller than baseload), then the lost load price is used to encourage investment. 
+However, there may be scenarios where demand is forecast to grow significantly, and limited investments have yet been made to meet demand $N$ years ahead. The expected price, would therefore be that of lost load. Lost load is defined as the price customers would be willing to pay to avoid disruption in their electricity supply. To avoid GenCos from estimating that large profits will be made, and under the assumption that further power plant investments will be made by competing GenCos, the lost load price is replaced with a predicted electricity price using linear regression based on prices at lower points of the demand curve. If zero segments of demand are met, then the lost load price is used to encourage investment. 
 
-Once expected fuel prices, carbon price, discount rate, and expected sale price of electricity are all forecast, the NPV can be calculated. GenCos must typically provide a certain percentage of upfront capital, with the rest coming from investors in the form of stock and shares or debt (WACC). The percentage of upfront capital can be customised by the user in the configuration file. The GenCos then invest the power plants with the highest NPV. 
+Once this data has been forecasted\vphantom{Once expected fuel prices, carbon price, discount rate, and expected sale price of electricity are all forecast}, the NPV can be calculated. GenCos must typically provide a certain percentage of upfront capital, with the rest coming from investors in the form of stock and shares or debt (WACC). The percentage of upfront capital can be customised by the user in the configuration file. The GenCos then invest the power plants with the highest NPV. 
 
 \subsubsection{Power Plant Parameters}\label{ssssec:powerplantparameters}
 
-The estimation of power plant parameters is critical to electricity market models. Costs form an important element of markets and investment, and publicly available data for power plant costs for individual countries can be scarce. Thus, extrapolation and interpolation is required to estimate costs for power plants of differing sizes, types and years of construction.
+\vphantom{The estimation of power plant parameters is critical to electricity market models.}Costs form an important element of markets and investment, and publicly available data for power plant costs for individual countries can be scarce. Thus, extrapolation and interpolation is required to estimate costs for power plants of differing sizes, types and years of construction.
 
 Users are able to initialise costs relevant to their particular country by providing detailed cost parameters. They can also provide an average cost per MWh produced over the lifetime of a plant, known as levelised cost of electricity (LCOE).
 
