@@ -38,7 +38,7 @@ As per Chappin \textit{et al.} \cite{Chappin2017}, we modelled the LDC of electr
 
 % \subsubsection{Electricity Market} \label{sssec:electricity_market} A simulated electricity spot market is run every year. {\color{red}Figure \ref{fig:powermarket} displays the market process for each segment of demand.} Power plants bid the short run marginal cost (SRMC) of each power plant. SRMC is the price that it costs a generator to sell a unit of electrical power (1MWh) excluding fixed and capital costs. 
 
-The power exchange \vphantom{\color{red} as is shown in Figure \ref{fig:powermarket}} accepts the lowest bids until supply meets demand. Once this condition is met, the spot price or system marginal price (SMP) is paid to all generators regardless of their initial bid. Generators are motivated to bid their SRMC, to ensure that their generator is being utilised, and reduce the risk of overbidding.
+The power exchange \vphantom{\color{red} as is shown in Figure \ref{fig:powermarket}}accepts the lowest bids until supply meets demand. Once this condition is met, the spot price or system marginal price (SMP) is paid to all generators regardless of their initial bid. Generators are motivated to bid their SRMC, to ensure that their generator is being utilised, and reduce the risk of overbidding.
 
 % {\color{red}Higher segments of demand command higher prices, due to more expensive generators being selected to meet demand. This leads to a price duration curve.
 % } 
@@ -88,7 +88,7 @@ The parameters used to initialise the power plants are detailed in this section.
 %\end{table}
 %\addtolength{\textfloatsep}{-0.2in}
 
-Precise data is not available for every plant size. Linear interpolation is used to estimate individual prices between known points. When the plant to be estimated falls outside of the range of known data points, the closest power plant is used. Extrapolation was tried, but would often lead to unrealistic costs. %{\color{red}For example, the parameters of a 1,500MW combined cycle gas plant (CCGT) are estimated to be the same as a 1,200MW CCGT plant if the 1,200MW plant was the largest available data point. }
+Precise data is not available for every plant size. Linear interpolation is used to estimate individual prices between known points. When the plant to be estimated falls outside of the range of known data points, the closest power plant is used. We experimented with extrapolation but this would often lead to unrealistic costs. %{\color{red}For example, the parameters of a 1,500MW combined cycle gas plant (CCGT) are estimated to be the same as a 1,200MW CCGT plant if the 1,200MW plant was the largest available data point. }
 
 If specific parameters are not known, then the LCOE can be used for parameter estimation, through the use of linear optimisation. Constraints can be set by the user, enabling, for example, varying operation and maintenance costs per country as a fraction of LCOE.
 
