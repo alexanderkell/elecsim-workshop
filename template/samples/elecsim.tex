@@ -1,11 +1,10 @@
 
-
 \begin{figure}
 	\centering
-	\includegraphics[width=0.9\linewidth]{figures/System_overview}
+	\includegraphics[width=0.85\linewidth]{figures/System_overview}
 	\caption{High level overview.}
 	\label{fig:systemoverview}
-	\vskip -7mm
+	\vskip -6.9mm
 \end{figure}
 
 \begin{figure*}
@@ -15,9 +14,9 @@
 	\label{fig:lowlevelsystem}
 \end{figure*}
 
-ElecSim is made up of five fundamental parts: the agents, which are split up into demand and GenCos; power plants; a Power Exchange, which controls a spot market to match power plants with electricity demand; and the data for parametrisation. A schematic of ElecSim is displayed in Figure \ref{fig:systemoverview} which demonstrates how they interact.
+ElecSim is made up of five fundamental parts: the agents, which are split up into demand and GenCos; power plants; a Power Exchange, which controls an electricity spot market; and the data for parametrisation. A schematic of ElecSim is displayed in Figure \ref{fig:systemoverview}.
 
-\paragraph{Data parametrisation} To parametrise the world, ElecSim contains a configuration file and a collection of data sources. These data sources contain information such as historical fuel prices, historical plant availability, wind and solar capacity.
+\paragraph{Data parametrisation} ElecSim contains a configuration file and a collection of data sources for parametrisation. These data sources contain information such as historical fuel prices, historical plant availability, wind and solar capacity.
 
 The configuration file allows for rapid changes to test different hypothesis and scenarios, and points to the different data sources. The configuration file enables one to change the demand growth and shape, future fuel and carbon prices, capital costs, plant availability, investment costs and simulation time.
 
@@ -36,19 +35,7 @@ As per Chappin \textit{et al.} \cite{Chappin2017}, we modelled the LDC of electr
 
 \paragraph{Generation Company Agents} The GenCos have two main functions. Investing in power plants and making bids to sell their generation capacity. We will first focus on the buying and selling of electricity, and then cover the investment algorithm.
 
-% \subsubsection{Electricity Market} \label{sssec:electricity_market} A simulated electricity spot market is run every year. {\color{red}Figure \ref{fig:powermarket} displays the market process for each segment of demand.} Power plants bid the short run marginal cost (SRMC) of each power plant. SRMC is the price that it costs a generator to sell a unit of electrical power (1MWh) excluding fixed and capital costs. 
-
-The power exchange \vphantom{\color{red} as is shown in Figure \ref{fig:powermarket}}accepts the lowest bids until supply meets demand. Once this condition is met, the spot price or system marginal price (SMP) is paid to all generators regardless of their initial bid. Generators are motivated to bid their SRMC, to ensure that their generator is being utilised, and reduce the risk of overbidding.
-
-% {\color{red}Higher segments of demand command higher prices, due to more expensive generators being selected to meet demand. This leads to a price duration curve.
-% } 
-
-% \begin{figure}
-%  	\centering
-%  	\includegraphics[width=1\linewidth]{figures/power_market}
-%  	\caption{{\color{red}Power exchange clearing \cite{nuclear_economics_consulting_group_2019}.}}
-%  	\label{fig:powermarket}
-% \end{figure}
+The power exchange runs every year, accepting the lowest bids until supply meets demand. Once this condition is met, the spot price or system marginal price (SMP) is paid to all generators regardless of their initial bid. Generators are motivated to bid their SRMC, to ensure that their generator is being utilised, and reduce the risk of overbidding.
 
 \paragraph{Investment}
 
@@ -69,6 +56,7 @@ This forecasted data is then used to simulate a market $N$ years into the future
 There may be scenarios where demand is forecast to grow significantly, and limited investments have yet been made to meet that demand. The expected price, would be that of lost load. Lost load is defined as the price customers would be willing to pay to avoid disruption in their electricity supply. To avoid GenCos from estimating large profits, and under the assumption that further power plant investments will be made, the lost load price is replaced with a predicted electricity price using linear regression based on prices at lower points of the demand curve. If zero segments of demand are met, then the  lost load price is used to encourage investment. 
 
 Once this data has been forecasted\vphantom{Once expected fuel prices, carbon price, discount rate, and expected sale price of electricity are all forecast}, the NPV can be calculated. GenCos must typically provide a certain percentage of upfront capital, with the rest coming from investors in the form of stock and shares or debt (WACC). The percentage of upfront capital can be customised by the user in the configuration file. The GenCos then invest in the power plants with the highest NPV. 
+
 
 \paragraph{Power Plant Parameters}\label{ssssec:powerplantparameters}
 
