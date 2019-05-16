@@ -1,7 +1,7 @@
 
-Here we present example scenario runs using ElecSIM. We vary the carbon tax and grow or reduce total electricity demand. This enables us to observe the effects of carbon tax on investment.
+Here we present example scenario runs using ElecSim. We vary the carbon tax and grow or reduce total electricity demand. This enables us to observe the effects of carbon tax on investment. In this paper we have presented scenarios where electricity demand decreases 1\% per year, due to the recent trend in the UK.
 
-%ElecSIM was built using python, this enabled us to lower barriers to entry and allow for users to integrate state-of-the-art machine learning and statistical packages in future work. We used project mesa as an open source agent based modelling framework for its ease of use \cite{Masad2015}.
+%ElecSim was built using python, this enabled us to lower barriers to entry and allow for users to integrate state-of-the-art machine learning and statistical packages in future work. We used project mesa as an open source agent based modelling framework for its ease of use \cite{Masad2015}.
 
 % {\color{blue}
 % We assume that carbon tax is set by the government, and not subject to market forces such as the EU Emissions Trading Scheme \cite{Council2016}.
@@ -13,9 +13,16 @@ Here we present example scenario runs using ElecSIM. We vary the carbon tax and 
 % It can be seen from Figure \ref{fig:demand99carbon10} that a carbon tax of \textsterling10 per year does little to influence investment in low-carbon, renewable technology. With traditional, fossil fuel based generation, providing the majority of supply in each year. However, there is an increase in renewable technology over the years, starting from mean 15.85\% market share in the year range 2019-2029, to 24.38\% in the year range 2039-2050. A similar increase of renewable energy with a carbon tax of \textsterling0 can be seen, albeit at a lower mean by the year range 2039-2050 (22.29\%).
 % }
 
-The UK Government BEIS have predicted a carbon tax increasing from \textsterling18 to \textsterling200 by 2050, with carbon price increasingly linearly from 2030 to 2050 \cite{Department2016}. We have approximated these assumptions in Figure \ref{fig:demand99carbon18} and modelled the results. The results show only a slight decrease in low-carbon supply over the \textsterling40 carbon tax energy mix. This demonstrates the importance of long-term modelling, and understanding the long-term impacts that can result. It is hypothesised that a lower carbon tax early on changes the market dynamics for years to come, due to certain price structures.
+For the first scenario run displayed, we have approximated the predictions by the UK Government, where carbon tax increases linearly from \textsterling18 to \textsterling200 by 2050 \cite{Department2016}. Figure \ref{fig:demand99carbon18} demonstrates a significant increase in gas turbines in the first few years, followed by a decrease, with onshore wind increasing.
 
-Figure \ref{fig:demand99carbon40} shows that a carbon tax of \textsterling40 is sufficient in moving towards a low-carbon economy, with backup fossil fuel generators.
+Figure \ref{fig:demand99carbon40} displays a run with a \textsterling40 carbon tax. This run demonstrates a higher share of onshore wind than in the previous scenario. 
+
+These runs demonstrate that a consistent, but relatively low carbon tax can have a larger impact in the uptake of renewable energy than increasing carbon tax over a long time frame. We hypothesise that an early carbon tax affects the long-term dynamics of the market for many years. We, therefore, suggest early action on carbon tax to transition to a low-carbon energy supply
+
+
+%The UK Government BEIS have predicted a carbon tax increasing from \textsterling18 to \textsterling200 by 2050, with carbon price increasingly linearly from 2030 to 2050 \cite{Department2016}. We have approximated these assumptions and modelled the results, shown by Figure \ref{fig:demand99carbon18}. The results show only a slight decrease in low-carbon supply over the \textsterling40 carbon tax energy mix. This demonstrates the importance of long-term modelling, and understanding the long-term impacts that can result. It is hypothesised that a lower carbon tax early on changes the market dynamics for years to come, due to certain price structures.
+%
+%Figure \ref{fig:demand99carbon40} shows that a carbon tax of \textsterling40 is sufficient in moving towards a low-carbon economy, with backup fossil fuel generators.
 
 % {\color{blue}However, by referring to Figure \ref{fig:demand99carbon70} it can be seen that to have 100\% renewable, a carbon price of \textsterling70 is required.
 

@@ -1,7 +1,7 @@
 
 The world faces significant challenges from climate change \cite{Masson-Delmotte2018}. A rise in carbon emissions increases the risk of severe impacts on the world such as rising sea levels, heat waves and tropical cyclones \cite{Masson-Delmotte2018}. A survey \cite{Cook2013} showed that 97\% of scientific literature concurs that the recent change in climate is anthropogenic.
 
- High carbon emitting electricity generation sources such as coal and natural gas currently produce 65\% of global electricity, whereas low carbon sources such as wind, solar, hydro and nuclear provide 35\% \cite{BP2018}. Hence, to bring about change and reach carbon-neutrality, a transition in the electricity mix is required.
+ High carbon emitting electricity generation sources such as coal and natural gas currently produce 65\% of global electricity, whereas low-carbon sources such as wind, solar, hydro and nuclear provide 35\% \cite{BP2018}. Hence, to bring about change and reach carbon-neutrality, a transition in the electricity mix is required.
 
 % {\color{red}
 % As shown by Figure \ref{fig:fuel_emissions_market_share}, the electricity mix is dominated by high carbon emitting fuels such as coal and natural gas. Low-carbon solutions, such as nuclear, renewables and hydro  produce less electricity put together than just coal.
@@ -26,25 +26,25 @@ The world faces significant challenges from climate change \cite{Masson-Delmotte
 % Such a transition needs to be performed in a safe and non-disruptive manner -- it may be possible to close down all fossil fuel plants in the next year, though if this leads to electricity shortages and power cuts then this is likely to cause significant problems both for companies and homes. Therefore a stepped approach which allows seamless transfer is desirable. This may seem a simple process to achieve -- slowly phase out existing fossil fuel generators and replace these by renewable sources -- however, there are many risks and uncertainties in this process. Existing power plants have an expected lifetime and their owners wish to maximise this and the profits which can be made from them, renewable sources are still developing -- meaning that their efficiency and reliability will change in years to come.
 %  }
 
- Due to the long construction times, long operating periods and high costs of power plants, investment decisions can have long term impacts on future electricity supply \cite{Chappin2017}. Governments and society, therefore have a role in ensuring that the negative externalities of emissions are priced into electricity generation so that optimal decisions are made. This is most likely to be achieved via carbon tax and regulation to influence electricity market players and investors, such as generation companies (GenCos).
+ Due to the long construction times, operating periods and high costs of power plants, investment decisions can have long term impacts on future electricity supply \cite{Chappin2017}. Governments and society, therefore have a role in ensuring that the negative externalities of emissions are priced into electricity generation. This is most likely to be achieved via carbon tax and regulation to influence electricity market players such as generation companies (GenCos).
 
 
-Decisions made in an electricity markets may have unintended consequences due their complexity. A method to test hypothesis before they are implemented would therefore be useful.
+Decisions made in an electricity markets may have unintended consequences due to their complexity. A method to test hypothesis before they are implemented would therefore be useful.
 
-Simulation is often used to increase understanding as well as to reduce risk and reduce uncertainty. Simulation allows practitioners to realise a physical system in a virtual model. In this context, a model is defined as an approximation of a system through the use of mathematical formulas and algorithms. Through simulation it is possible to test a system where real life experimentation would not be practical due to reasons such as prohibitively high costs, time constraints or risk of detrimental impacts. This has the dual benefit of minimising the risk of real decisions in the physical system, as well as allowing practitioners to test less risk-averse strategies.
+Simulation is often used to increase understanding as well as to reduce risk and reduce uncertainty. Simulation allows practitioners to realise a physical system in a virtual model. In this context, a model is defined as an approximation of a system through the use of mathematical formulas and algorithms. Through simulation, it is possible to test a system where real life experimentation would not be practical due to reasons such as prohibitively high costs, time constraints or risk of detrimental impacts. This has the dual benefit of minimising the risk of real decisions in the physical system, as well as allowing practitioners to test less risk-averse strategies.
 
-Agent-based modelling (ABM) is a class of computational simulation models composed of autonomous, interacting agents and are a way of modelling the dynamics of a complex system. Due to the numerous and diverse actors involved in electricity markets, ABMs have been utilised in this field to address phenomena such as market power \cite{Ringler2016a}.
+Agent-based modelling (ABM) is a class of computational simulation models composed of autonomous, interacting agents and model the dynamics of a system. Due to the numerous and diverse actors involved in electricity markets, ABMs have been utilised in this field to address phenomena such as market power \cite{Ringler2016a}. 
 
-This paper presents ElecSIM, an open-source ABM that simulates GenCos in a wholesale electricity market. ElecSIM models each GenCo as an independent agent and electricity demand as an aggregated agent (which can be expanded to segmented types of demand). An electricity market facilitates trades between the two. 
+This paper presents ElecSim, an open-source ABM that simulates GenCos in a wholesale electricity market. ElecSim models each GenCo as an independent agent and electricity demand. An electricity market facilitates trades between the two. 
 
 GenCos make bids for each of their power plants. Their bids are based on the generator's short run marginal cost (SRMC) \cite{Perloff2012}, which excludes capital and fixed costs. The electricity market accepts bids in cost order, also known as merit-order dispatch. GenCos invest in power plants based on expected profitability.	
 
-ElecSIM is designed to provide quantitative advice to policy makers, allowing them to test policy outcomes under different scenarios. They are able to modify a script to realise a scenario of their choice. It can also be used by energy market developers who can test new electricity sources or policy types, enabling the modelling of changing market conditions.
+ElecSim is designed to provide quantitative advice to policy makers, allowing them to test policy outcomes under different scenarios. They are able to modify a script to realise a scenario of their choice. It can also be used by energy market developers who can test new electricity sources or policy types, enabling the modelling of changing market conditions.
 
 % {\color{red}
 % \begin{itemize}
 % \item {\bf Policy experts} to test policy outcomes under different scenarios and provide quantitative advice to policy makers. They can provide a simple script defining the policies they wish to use along with the parameters for these polices.
-% \item {\bf Energy market developers} who can use the extensible framework to add such things as new energy sources, policy types, consumer profiles and storage types. Thus allowing ElecSIM to adapt to a changing ecosystem.
+% \item {\bf Energy market developers} who can use the extensible framework to add such things as new energy sources, policy types, consumer profiles and storage types. Thus allowing ElecSim to adapt to a changing ecosystem.
 % \end{itemize}
 % }
 
@@ -59,6 +59,6 @@ ElecSIM is designed to provide quantitative advice to policy makers, allowing th
 
 
 
-The contribution of this paper is a new open-source framework, ElecSIM, and test example scenarios produced by varying carbon taxes. We provide curated data, and improve realism via stochasticity of inputs. Section \ref{Literature Review} is a literature review of the tools used in practice. Section \ref{Model} details the model and assumptions made, and Section \ref{Valdiation and Performance} details the simulation and provides performance metrics. Section \ref{Scenario Testing} details our results. We conclude the work and propose future directions in Section \ref{Conclusion}.
+The contribution of this paper is a new open-source framework with example scenarios of varying carbon taxes. We provide curated data, and improve realism via Monte-Carlo sampling. Section \ref{Literature Review} is a literature review. Section \ref{Model} details the model and assumptions made, and Section \ref{Valdiation and Performance} provides performance metrics and validation. Section \ref{Scenario Testing} details our results. We conclude the work in Section \ref{Conclusion}.
 
 

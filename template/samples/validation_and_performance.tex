@@ -2,11 +2,11 @@
 
  Validation of models is important to ascertain that the output is accurate. However, it should be noted that these long-term simulations are not predictions of the future, rather possible outcomes based upon certain assumptions. Jager posits that a certain outcome or development path, captured by empirical data, might have developed in a completely different direction due to chance. However, the processes that emerge from a model should be realistic and in keeping with expected behaviour \cite{Jager2006a}.
 
-We begin by comparing the price duration curve in the year 2018. Figure \ref{fig:price_duration_curve} shows the N2EX Day Ahead Auction Prices of the UK \cite{nordpool_2019}, the stochastic simulated electricity prices, and the non-stochastic electricity price throughout the year 2018. Stochasticity includes varying fuel prices throughout a year, and varying $V_C$ and WACC. The N2EX Day Ahead Market is a day ahead market run by Nord Pool AS. Nord Pool AS runs the largest market for electrical energy in Europe, measured in volume traded and in market share \cite{nordpool_2019}.
+We begin by comparing the price duration curve in the year 2018. Figure \ref{fig:price_duration_curve} shows the N2EX Day Ahead Auction Prices of the UK \cite{nordpool_2019}, the Monte-Carlo simulated electricity prices, and the non Monte-Carlo electricity price throughout the year 2018. Fuel prices varying throughout a year, as does $V_C$ and WACC. WACC is sampled from a Gaussian distribution with a standard deviation of $\pm3$\%. $V_C$ is sampled from a uniform distribution between 30\% and 200\% of the mean $V_C$ price, whilst fuel price is sampled from the residuals of an ARIMA model fit on historical data. The N2EX Day Ahead Market is a day ahead market run by Nord Pool AS. Nord Pool AS runs the largest market for electrical energy in Europe, measured in volume traded and in market share \cite{nordpool_2019}.
 \begin{figure}
 	\begin{center}
-		\includegraphics[width=0.35\textwidth]{figures/load_price_duration_curve_comparison.pdf}
-		\caption{Price duration curve which compares real electricity prices to those paid in ElecSIM with and without stochasticity (2018).}
+		\includegraphics[width=0.35\textwidth]{figures/load_price_duration_curve_comparison-Monte-Carlo}
+		\caption{Price duration curve which compares real electricity prices to those paid in ElecSim (2018).}
 		\label{fig:price_duration_curve}
 	\end{center}
 \end{figure}
@@ -20,9 +20,10 @@ We begin by comparing the price duration curve in the year 2018. Figure \ref{fig
 
 
 \begin{table}[]
+\small
 \begin{tabular}{p{3cm}p{1.4cm}p{1cm}p{1.5cm}}
 \hline
-Figure & N2EX Day Ahead & ElecSIM & Non-Stochastic \\ \hline
+Figure & N2EX Day Ahead & ElecSim & Non-Stochastic \\ \hline
 Avg. Price (\textsterling/MWh) & 57.49 & 57.52 & 53.39 \\
 Std. dev (\textsterling/MWh) & - & 9.64 & - \\
 MAE (\textsterling/MWh) & - & 3.97 & 8.35 \\
@@ -44,7 +45,7 @@ By observing the processes that emerge from the long-term scenarios, we can see 
 
 \paragraph{Performance}
 
- We used Microsoft Azure Public Cloud. Utilising two virtual machines of 64 vCPU's each (D64 v3), which are built using Intel Broadwell E5-2673 v4 2.3GHz processors, and the Intel Haswell 2.4 GHz E5-2673 v3. They have a total of 256GB of memory and use a Linux operating system. The total disk size of ElecSIM is 5.8MB. The memory used for a 10 year run has a median of 57.1MB.
+ We used Microsoft Azure Public Cloud. Utilising two virtual machines of 64 vCPU's each (D64 v3), which are built using Intel Broadwell E5-2673 v4 2.3GHz processors, and the Intel Haswell 2.4 GHz E5-2673 v3. They have a total of 256GB of memory and use a Linux operating system. The total disk size of ElecSim is 5.8MB. The memory used for a 10 year run has a median of 57.1MB.
 
 
 \begin{figure}
@@ -56,7 +57,7 @@ By observing the processes that emerge from the long-term scenarios, we can see 
 \end{figure}
 
 
-Figure \ref{fig:timingplot} shows the running time for ElecSIM with varying installed capacity. We varied demand between 2GW and 320GW to see the effect of different sized countries on running time. The makeup of the electricity mix was achieve through stratified sampling of the UK electricity mix. The results show a linear time complexity. 
+Figure \ref{fig:timingplot} shows the running time for ElecSim with varying installed capacity. We varied demand between 2GW and 320GW to see the effect of different sized countries on running time. The makeup of the electricity mix was achieve through stratified sampling of the UK electricity mix. The results show a linear time complexity. 
 
 
 %\begin{itemize}
